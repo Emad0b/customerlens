@@ -1,0 +1,281 @@
+{
+  "source": {
+    "name": "UCI Online Retail",
+    "doi": "10.24432/C5BW33",
+    "url": "https://archive.ics.uci.edu/static/public/352/online+retail.zip",
+    "sha256": "43465a06f2ccf7c8b5bd2892bc7defb52f97487934fe93b16ae4c3936424676d",
+    "license": "CC BY 4.0",
+    "creator": "Daqing Chen",
+    "retrieved": "2026-10-18",
+    "raw_rows": 541909,
+    "duplicate_rows": 5268,
+    "missing_customer_rows": 135037,
+    "nonpositive_price_rows": 40,
+    "partial_last_day_rows": 617,
+    "clean_rows": 400947,
+    "credit_rows": 8865,
+    "customers": 4370,
+    "start": "2010-12-01",
+    "end_exclusive": "2011-12-09",
+    "gross_sales": 8702879.234,
+    "credits": 439900.4
+  },
+  "protocol": {
+    "lookback_days": 90,
+    "outcome_days": 90,
+    "train_cutoff": "2011-03-14",
+    "validation_cutoff": "2011-06-12",
+    "test_cutoff": "2011-09-10",
+    "end_exclusive": "2011-12-09",
+    "train_customers": 1585,
+    "validation_customers": 1983,
+    "test_customers": 1907,
+    "segment_spend_threshold": 756.81
+  },
+  "selected_model": "logistic",
+  "selected_revenue": "boosting",
+  "scores": [
+    {
+      "id": "prevalence",
+      "label": "Prevalence baseline",
+      "validation": {
+        "roc_auc": 0.5,
+        "average_precision": 0.5562279374684821,
+        "brier": 0.24805917058523808,
+        "precision20": 0.5566750629722922,
+        "lift20": 1.0008038530136496,
+        "base_rate": 0.5562279374684821,
+        "customers": 1983
+      },
+      "test": {
+        "roc_auc": 0.5,
+        "average_precision": 0.6895647614053487,
+        "brier": 0.22374728281378417,
+        "precision20": 0.6963350785340314,
+        "lift20": 1.009818246969124,
+        "base_rate": 0.6895647614053487,
+        "customers": 1907
+      }
+    },
+    {
+      "id": "logistic",
+      "label": "Logistic regression",
+      "validation": {
+        "roc_auc": 0.730225418280722,
+        "average_precision": 0.7884113889520861,
+        "brier": 0.21129368787375785,
+        "precision20": 0.8513853904282116,
+        "lift20": 1.5306411869620522,
+        "base_rate": 0.5562279374684821,
+        "customers": 1983
+      },
+      "test": {
+        "roc_auc": 0.6959446613914295,
+        "average_precision": 0.8440300717030065,
+        "brier": 0.20081465188672587,
+        "precision20": 0.9267015706806283,
+        "lift20": 1.3438934564927438,
+        "base_rate": 0.6895647614053487,
+        "customers": 1907
+      }
+    },
+    {
+      "id": "boosting",
+      "label": "Gradient boosting",
+      "validation": {
+        "roc_auc": 0.7142637847193605,
+        "average_precision": 0.7736902703269397,
+        "brier": 0.21543095402816803,
+        "precision20": 0.8564231738035264,
+        "lift20": 1.5396982354056146,
+        "base_rate": 0.5562279374684821,
+        "customers": 1983
+      },
+      "test": {
+        "roc_auc": 0.6785331671976158,
+        "average_precision": 0.8318929052127946,
+        "brier": 0.20913323011820345,
+        "precision20": 0.9057591623036649,
+        "lift20": 1.3135229828996875,
+        "base_rate": 0.6895647614053487,
+        "customers": 1907
+      }
+    }
+  ],
+  "revenue_scores": [
+    {
+      "id": "trailing",
+      "label": "Trailing 90-day net spend",
+      "validation_mae": 545.4214175491679,
+      "test_mae": 841.5365867855271
+    },
+    {
+      "id": "mean",
+      "label": "Training-cohort mean",
+      "validation_mae": 877.267303512029,
+      "test_mae": 1134.128453127197
+    },
+    {
+      "id": "boosting",
+      "label": "Robust gradient boosting",
+      "validation_mae": 530.7400823280343,
+      "test_mae": 869.4588585257393
+    }
+  ],
+  "calibration": [
+    {
+      "model": "prevalence",
+      "bin": 0.5,
+      "predicted": 0.5911671924290223,
+      "observed": 0.6895647614053487,
+      "customers": 1907
+    },
+    {
+      "model": "logistic",
+      "bin": 0.4,
+      "predicted": 0.4601954618744899,
+      "observed": 0.5670588235294117,
+      "customers": 850
+    },
+    {
+      "model": "logistic",
+      "bin": 0.5,
+      "predicted": 0.5318069663105703,
+      "observed": 0.6625514403292181,
+      "customers": 243
+    },
+    {
+      "model": "logistic",
+      "bin": 0.6,
+      "predicted": 0.6658716795253853,
+      "observed": 0.6784140969162996,
+      "customers": 227
+    },
+    {
+      "model": "logistic",
+      "bin": 0.7,
+      "predicted": 0.7354476401216246,
+      "observed": 0.7989690721649485,
+      "customers": 194
+    },
+    {
+      "model": "logistic",
+      "bin": 0.8,
+      "predicted": 0.8512887840087485,
+      "observed": 0.872093023255814,
+      "customers": 172
+    },
+    {
+      "model": "logistic",
+      "bin": 0.9,
+      "predicted": 0.968857711352237,
+      "observed": 0.9638009049773756,
+      "customers": 221
+    },
+    {
+      "model": "boosting",
+      "bin": 0.1,
+      "predicted": 0.16951465029357302,
+      "observed": 0.6,
+      "customers": 10
+    },
+    {
+      "model": "boosting",
+      "bin": 0.2,
+      "predicted": 0.2632053723748606,
+      "observed": 0.47,
+      "customers": 100
+    },
+    {
+      "model": "boosting",
+      "bin": 0.3,
+      "predicted": 0.34869875612785334,
+      "observed": 0.5617529880478087,
+      "customers": 251
+    },
+    {
+      "model": "boosting",
+      "bin": 0.4,
+      "predicted": 0.45162431390674074,
+      "observed": 0.5909090909090909,
+      "customers": 352
+    },
+    {
+      "model": "boosting",
+      "bin": 0.5,
+      "predicted": 0.5459059877199277,
+      "observed": 0.6068965517241379,
+      "customers": 290
+    },
+    {
+      "model": "boosting",
+      "bin": 0.6,
+      "predicted": 0.6447696190834711,
+      "observed": 0.711340206185567,
+      "customers": 194
+    },
+    {
+      "model": "boosting",
+      "bin": 0.7,
+      "predicted": 0.7535527124523809,
+      "observed": 0.7247191011235955,
+      "customers": 178
+    },
+    {
+      "model": "boosting",
+      "bin": 0.8,
+      "predicted": 0.8494571714121708,
+      "observed": 0.8333333333333334,
+      "customers": 228
+    },
+    {
+      "model": "boosting",
+      "bin": 0.9,
+      "predicted": 0.9512801408729863,
+      "observed": 0.9210526315789473,
+      "customers": 304
+    }
+  ],
+  "targeting": [
+    {
+      "fraction": 10,
+      "customers": 191,
+      "model_repeat_rate": 0.9633507853403142,
+      "spend_repeat_rate": 0.8952879581151832,
+      "model_net": 1128789.53,
+      "spend_net": 1165383.75
+    },
+    {
+      "fraction": 20,
+      "customers": 382,
+      "model_repeat_rate": 0.9267015706806283,
+      "spend_repeat_rate": 0.8691099476439791,
+      "model_net": 1417296.66,
+      "spend_net": 1418508.13
+    },
+    {
+      "fraction": 30,
+      "customers": 573,
+      "model_repeat_rate": 0.8830715532286213,
+      "spend_repeat_rate": 0.8429319371727748,
+      "model_net": 1599265.66,
+      "spend_net": 1581354.41
+    },
+    {
+      "fraction": 50,
+      "customers": 954,
+      "model_repeat_rate": 0.8050314465408805,
+      "spend_repeat_rate": 0.7914046121593291,
+      "model_net": 1835804.3,
+      "spend_net": 1836579.92
+    },
+    {
+      "fraction": 100,
+      "customers": 1907,
+      "model_repeat_rate": 0.6895647614053487,
+      "spend_repeat_rate": 0.6895647614053487,
+      "model_net": 2189570.98,
+      "spend_net": 2189570.98
+    }
+  ]
+}

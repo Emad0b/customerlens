@@ -1,0 +1,16 @@
+.deps/
+.venv/
+node_modules/
+dist/
+runtime/
+__pycache__/
+.pytest_cache/
+test-results/
+playwright-report/
+.env
+.openai/local/
+*.tsbuildinfo
+data/m5_sample.csv
+
+data/*.xlsx
+
