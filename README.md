@@ -1,5 +1,7 @@
 # CustomerLens
 
+CustomerLens helps you understand which retail customers are likely to buy again and how spending changes over time. Use the dashboard to explore customer groups, compare repeat purchasing, and inspect sales forecasts.
+
 A reproducible customer analytics portfolio project: repeat-purchase propensity, revenue forecasting, RFM segments and cohort retention over real retail transactions.
 
 ![CustomerLens dashboard](docs/customerlens-overview.png)
